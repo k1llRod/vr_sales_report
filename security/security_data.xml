@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="group_sales_report" model="res.groups">
+            <field name="name">Reportes de Ventas</field>
+        </record>
+
+        <record id="sale_order_personal_rule_2" model="ir.rule">
+            <field name="name">Ordenes Personales</field>
+            <field ref="sale.model_sale_order" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('vr_sales_report.group_sales_report'))]"/>
+        </record>
+
+        <record id="sale_order_line_personal_rule_2" model="ir.rule">
+            <field name="name">Lineas de Ordenes Personales</field>
+            <field ref="sale.model_sale_order_line" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('vr_sales_report.group_sales_report'))]"/>
+        </record>
+    </data>
+</odoo>
